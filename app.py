@@ -125,7 +125,7 @@ def predict_disease(image_path):
     return class_to_disease[index]
 
 def main():
-    st.title("FarmSmartAI")
+    st.title("FarmTrend")
 
     st.sidebar.header("Choose a Feature")
     choice = st.sidebar.radio("", ("Conversational Agent", "Plant Disease Prediction"))
