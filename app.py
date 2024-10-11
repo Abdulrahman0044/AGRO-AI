@@ -15,9 +15,9 @@ class PlantDiseaseNet(torch.nn.Module):
    
 
 # Load the plant disease prediction model
-model=CNN.CNN(39)
-model_path = "plant_disease_model_1_latest.pt"
-model.eval()
+    model=CNN.CNN(39)
+    model_path = "plant_disease_model_1_latest.pt"
+    model.eval()
 
 # Define a mapping from class indices to disease names
 class_to_disease = {
