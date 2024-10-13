@@ -7,6 +7,7 @@ from PIL import Image
 from openai import OpenAI
 import torchvision.transforms.functional as TF
 import numpy as np
+<<<<<<< HEAD
 import os
 from dotenv import load_dotenv
 
@@ -17,6 +18,13 @@ client = OpenAI(
 
     api_key=os.environ.get("OPENAI_API_KEY")
 )
+=======
+import os 
+
+OPENAI_KEY = os.get_env('api_key')
+
+openai.OPENAI_KEY
+>>>>>>> 84e3c8c (create .gitignore)
 
 # Define the model class 
 class PlantDiseaseNet(torch.nn.Module):
