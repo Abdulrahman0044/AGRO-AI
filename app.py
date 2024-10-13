@@ -1,21 +1,29 @@
 import streamlit as st
 import torch
-import CNN
+import cnn
+from cnn import CNN
 from torchvision import transforms
 from PIL import Image
-import openai
+from openai import OpenAI
 import torchvision.transforms.functional as TF
 import numpy as np
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # OpenAI setup
-openai.api_key = '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'
+client = OpenAI(
+
+    api_key=os.environ.get("OPENAI_API_KEY")
+)
 
 # Define the model class 
 class PlantDiseaseNet(torch.nn.Module):
    
 
 # Load the plant disease prediction model
-    model=CNN.CNN(39)
+    model=cnn.CNN(39)
     model_path = "plant_disease_model_1_latest.pt"
     model.eval()
 
@@ -85,9 +93,9 @@ def ask_openai_with_rate_limit(question):
             time.sleep((60 / rate_limit) - time_elapsed)
 
     # Make the API request
-    response = openai.Completion.create(
-        engine="davinci",
-        prompt=question,
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=question,
         max_tokens=150
     )
 
