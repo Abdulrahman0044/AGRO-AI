@@ -7,7 +7,6 @@ from PIL import Image
 from openai import OpenAI
 import torchvision.transforms.functional as TF
 import numpy as np
-<<<<<<< HEAD
 import os
 from dotenv import load_dotenv
 
@@ -18,13 +17,6 @@ client = OpenAI(
 
     api_key=os.environ.get("OPENAI_API_KEY")
 )
-=======
-import os 
-
-OPENAI_KEY = os.get_env('api_key')
-
-openai.OPENAI_KEY
->>>>>>> 84e3c8c (create .gitignore)
 
 # Define the model class 
 class PlantDiseaseNet(torch.nn.Module):
@@ -80,10 +72,6 @@ class_to_disease = {
                 
 
 import time
-
-
-
-
 # Define the rate limit 
 rate_limit = 60  # 60 requests per minute
 
@@ -111,9 +99,6 @@ def ask_openai_with_rate_limit(question):
     last_request_time = time.time()
 
     return response.choices[0].text.strip()
-
-
-
 
 def predict_disease(image_path):
     # Load the image
